@@ -267,7 +267,8 @@ public class PenilaianPanel extends JPanel implements Searchable {
         cbPeriode.removeAllItems();
         List<String> list = penilaianDAO.getAllPeriode();
         if (list.isEmpty()) {
-            list.add("2024-01"); // Default if none exists
+            int prevYear = java.time.LocalDate.now().getYear() - 1;
+            list.add(prevYear + "-01"); // Default if none exists
         }
         for (String p : list) {
             cbPeriode.addItem(p);

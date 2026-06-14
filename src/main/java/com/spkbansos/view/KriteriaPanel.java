@@ -12,7 +12,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.List;
 
-public class KriteriaPanel extends JPanel {
+public class KriteriaPanel extends JPanel implements Searchable {
 
     private KriteriaDAO kriteriaDAO;
     private JTable tblKriteria;
@@ -24,6 +24,7 @@ public class KriteriaPanel extends JPanel {
     
     private JButton btnTambah;
     private EmptyStateOverlay emptyOverlay;
+    private String currentKeyword = "";
 
     public KriteriaPanel() {
         this.kriteriaDAO = new KriteriaDAO();
@@ -33,6 +34,12 @@ public class KriteriaPanel extends JPanel {
         setBorder(new EmptyBorder(AppDesign.Dimensions.PAGE_PADDING, AppDesign.Dimensions.PAGE_PADDING, AppDesign.Dimensions.PAGE_PADDING, AppDesign.Dimensions.PAGE_PADDING));
 
         initUI();
+        loadData();
+    }
+
+    @Override
+    public void onSearch(String keyword) {
+        this.currentKeyword = keyword;
         loadData();
     }
 
@@ -155,7 +162,7 @@ public class KriteriaPanel extends JPanel {
 
     private void loadData() {
         tableModel.setRowCount(0);
-        List<KriteriaSAW> list = kriteriaDAO.getAll();
+        List<KriteriaSAW> list = currentKeyword.isEmpty() ? kriteriaDAO.getAll() : kriteriaDAO.search(currentKeyword);
         
         int no = 1;
         for (KriteriaSAW k : list) {

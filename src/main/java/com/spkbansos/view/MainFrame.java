@@ -90,43 +90,6 @@ public class MainFrame extends JFrame {
         headerPanel.add(titleRow);
         headerPanel.add(Box.createRigidArea(new Dimension(0, 16)));
 
-        // User Info Block
-        JPanel userRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 0));
-        userRow.setBackground(AppDesign.Colors.SIDEBAR_BG);
-        userRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
-        
-        String nama = currentUser != null ? currentUser.getNamaLengkap() : "Administrator";
-        String inisial = nama.length() > 0 ? nama.substring(0, 1).toUpperCase() : "A";
-        
-        JLabel lblAvatar = new JLabel(inisial, SwingConstants.CENTER);
-        lblAvatar.setPreferredSize(new Dimension(36, 36));
-        lblAvatar.setBackground(AppDesign.Colors.ACCENT_SECONDARY);
-        lblAvatar.setForeground(Color.WHITE);
-        lblAvatar.setOpaque(true);
-        lblAvatar.setFont(AppDesign.Typography.BODY_BOLD);
-        lblAvatar.putClientProperty("FlatLaf.style", "arc: 18");
-        
-        JPanel userInfoText = new JPanel();
-        userInfoText.setLayout(new BoxLayout(userInfoText, BoxLayout.Y_AXIS));
-        userInfoText.setBackground(AppDesign.Colors.SIDEBAR_BG);
-        
-        JLabel lblUserName = new JLabel(nama);
-        lblUserName.setFont(AppDesign.Typography.BODY_BOLD);
-        lblUserName.setForeground(AppDesign.Colors.TEXT_PRIMARY);
-        
-        JLabel lblRole = new JLabel("Administrator");
-        lblRole.setFont(AppDesign.Typography.CAPTION);
-        lblRole.setForeground(AppDesign.Colors.TEXT_SECONDARY);
-        
-        userInfoText.add(lblUserName);
-        userInfoText.add(Box.createRigidArea(new Dimension(0, 2)));
-        userInfoText.add(lblRole);
-        
-        userRow.add(lblAvatar);
-        userRow.add(userInfoText);
-        
-        headerPanel.add(userRow);
-
         sidebar.add(headerPanel);
 
         // --- Garis pemisah ---
@@ -239,6 +202,7 @@ public class MainFrame extends JFrame {
         btnNotification.setBorderPainted(false);
         btnNotification.setContentAreaFilled(false);
         btnNotification.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnNotification.addActionListener(e -> new AboutDialog(MainFrame.this).setVisible(true));
 
         JButton btnProfile = new JButton(IconHelper.getIcon("user-circle", 24, AppDesign.Colors.TEXT_PRIMARY));
         btnProfile.setPreferredSize(new Dimension(35, 35));
@@ -246,11 +210,38 @@ public class MainFrame extends JFrame {
         btnProfile.setBorderPainted(false);
         btnProfile.setContentAreaFilled(false);
         btnProfile.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnProfile.addActionListener(e -> {
+            JPopupMenu popup = new JPopupMenu();
+            
+            JMenuItem itemGantiPwd = new JMenuItem("Ganti Password", IconHelper.getIcon("lock", 16, AppDesign.Colors.TEXT_PRIMARY));
+            itemGantiPwd.addActionListener(ev -> new ChangePasswordDialog(MainFrame.this, currentUser).setVisible(true));
+            
+            JMenuItem itemLogout = new JMenuItem("Logout", IconHelper.getIcon("logout", 16, AppDesign.Colors.DANGER));
+            itemLogout.setForeground(AppDesign.Colors.DANGER);
+            itemLogout.addActionListener(ev -> btnLogout.doClick());
+            
+            JMenuItem headerItem = new JMenuItem("Halo, " + currentUser.getNamaLengkap());
+            headerItem.setEnabled(false);
+            
+            popup.add(headerItem);
+            popup.addSeparator();
+            popup.add(itemGantiPwd);
+            popup.addSeparator();
+            popup.add(itemLogout);
+            
+            popup.show(btnProfile, 0, btnProfile.getHeight());
+        });
+
+        JLabel lblNavUserName = new JLabel(currentUser != null ? currentUser.getNamaLengkap() : "Administrator");
+        lblNavUserName.setFont(AppDesign.Typography.BODY_BOLD);
+        lblNavUserName.setForeground(AppDesign.Colors.TEXT_PRIMARY);
 
         navbarRight.add(txGlobalSearch);
         navbarRight.add(Box.createRigidArea(new Dimension(10, 0)));
         navbarRight.add(btnNotification);
         navbarRight.add(Box.createRigidArea(new Dimension(10, 0)));
+        navbarRight.add(lblNavUserName);
+        navbarRight.add(Box.createRigidArea(new Dimension(5, 0)));
         navbarRight.add(btnProfile);
         navbar.add(navbarRight, BorderLayout.EAST);
         
@@ -263,7 +254,7 @@ public class MainFrame extends JFrame {
         contentPanel = new JPanel(cardLayout);
         contentPanel.setBackground(AppDesign.Colors.BG_PRIMARY);
 
-        hasilPanel = new HasilKeputusanPanel();
+        hasilPanel = new HasilKeputusanPanel(currentUser);
         contentPanel.add(new DashboardPanel(currentUser), "dashboard");
         contentPanel.add(new DataWargaPanel(), "warga");
         contentPanel.add(new KriteriaPanel(), "kriteria");

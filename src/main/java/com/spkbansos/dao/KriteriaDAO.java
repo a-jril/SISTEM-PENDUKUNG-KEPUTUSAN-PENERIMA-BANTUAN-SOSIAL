@@ -62,6 +62,36 @@ public class KriteriaDAO {
         return list;
     }
 
+    public List<KriteriaSAW> search(String keyword) {
+        List<KriteriaSAW> list = new ArrayList<>();
+        String query = "SELECT * FROM kriteria_saw WHERE kode LIKE ? OR nama LIKE ? ORDER BY kode";
+        
+        try (Connection conn = DatabaseHelper.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+             
+            String pattern = "%" + keyword + "%";
+            pstmt.setString(1, pattern);
+            pstmt.setString(2, pattern);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    list.add(new KriteriaSAW(
+                        rs.getInt("id"),
+                        rs.getString("kode"),
+                        rs.getString("nama"),
+                        rs.getString("atribut"),
+                        rs.getDouble("bobot"),
+                        rs.getString("keterangan"),
+                        rs.getInt("is_aktif")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public boolean insert(KriteriaSAW kriteria) {
         String query = "INSERT INTO kriteria_saw (kode, nama, atribut, bobot, keterangan, is_aktif) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseHelper.getConnection();

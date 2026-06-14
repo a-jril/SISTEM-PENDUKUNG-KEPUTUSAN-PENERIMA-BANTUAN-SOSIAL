@@ -20,6 +20,12 @@ public final class AppDesign {
         /** Threshold kelayakan bansos */
         public static final double KELAYAKAN_THRESHOLD = 0.6;
         
+        /** Nama Aplikasi */
+        public static final String APP_NAME = "SPK Bansos";
+        
+        /** Versi Aplikasi */
+        public static final String APP_VERSION = "v1.0.0";
+        
         private Config() {}
     }
 
@@ -91,6 +97,10 @@ public final class AppDesign {
         public static final Color LOGIN_GRADIENT_BOT   = new Color(22, 27, 34);
         /** Background card login */
         public static final Color LOGIN_CARD_BG        = new Color(22, 27, 34);
+        /** Gradient utama panel kiri (Biru) */
+        public static final Color LOGIN_BRAND_GRADIENT_START = new Color(56, 132, 244);
+        /** Gradient utama panel kiri (Ungu) */
+        public static final Color LOGIN_BRAND_GRADIENT_END   = new Color(111, 66, 193);
 
         // --- Navbar ---
         public static final Color NAVBAR_BG         = new Color(22, 27, 34);  // Sama dengan BG_SECONDARY

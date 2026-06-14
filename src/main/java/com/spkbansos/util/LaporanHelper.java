@@ -11,6 +11,8 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 
+import com.spkbansos.view.AppDesign;
+
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -93,7 +95,7 @@ public class LaporanHelper {
         long totalLayak = 0;
         long totalTidakLayak = 0;
         for (HasilSAW h : hasilList) {
-            String rek = h.getSkorV() >= 0.6 ? "Layak" : "Tidak Layak";
+            String rek = h.getSkorV() >= AppDesign.Config.KELAYAKAN_THRESHOLD ? "Layak" : "Tidak Layak";
             beans.add(new HasilReportBean(h, rek));
             if (rek.equals("Layak"))
                 totalLayak++;
@@ -105,7 +107,7 @@ public class LaporanHelper {
         params.put("NAMA_DESA", NAMA_DESA);
         params.put("TANGGAL_CETAK", LocalDate.now().format(DATE_FORMATTER));
         params.put("PERIODE", periode);
-        params.put("THRESHOLD", "0.6000");
+        params.put("THRESHOLD", String.format(java.util.Locale.US, "%.4f", AppDesign.Config.KELAYAKAN_THRESHOLD));
         params.put("TOTAL_LAYAK", String.valueOf(totalLayak));
         params.put("TOTAL_TIDAK_LAYAK", String.valueOf(totalTidakLayak));
         params.put("OPERATOR_NAMA", operatorNama != null ? operatorNama : "Administrator");

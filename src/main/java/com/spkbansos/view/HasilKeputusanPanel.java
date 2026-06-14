@@ -5,6 +5,7 @@ import com.spkbansos.dao.KriteriaDAO;
 import com.spkbansos.dao.PenilaianDAO;
 import com.spkbansos.model.HasilSAW;
 import com.spkbansos.model.KriteriaSAW;
+import com.spkbansos.model.User;
 import com.spkbansos.util.IconHelper;
 import com.spkbansos.util.LaporanHelper;
 
@@ -43,8 +44,10 @@ public class HasilKeputusanPanel extends JPanel {
     private JButton btnCetak;
 
     private List<HasilSAW> currentHasilList;
+    private User currentUser;
 
-    public HasilKeputusanPanel() {
+    public HasilKeputusanPanel(User user) {
+        this.currentUser = user;
         sawController = new SAWController();
         penilaianDAO = new PenilaianDAO();
         kriteriaDAO = new KriteriaDAO();
@@ -376,7 +379,8 @@ public class HasilKeputusanPanel extends JPanel {
             @Override
             protected Void doInBackground() {
                 try {
-                    LaporanHelper.cetakLaporanRekomendasi(currentHasilList, periode, null);
+                    String operatorNama = (currentUser != null) ? currentUser.getNamaLengkap() : "Administrator";
+                    LaporanHelper.cetakLaporanRekomendasi(currentHasilList, periode, operatorNama);
                 } catch (Exception ex) {
                     error = ex;
                 }
