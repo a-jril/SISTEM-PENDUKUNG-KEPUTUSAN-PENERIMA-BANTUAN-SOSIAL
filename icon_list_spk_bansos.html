@@ -1,0 +1,576 @@
+
+<h2 class="sr-only">Daftar lengkap icon yang dibutuhkan di proyek SPK Bansos</h2>
+
+<style>
+  .section { margin-bottom: 2rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    padding-bottom: 10px; margin-bottom: 14px;
+  }
+  .section-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .section-badge {
+    font-size: 11px; padding: 2px 8px;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 99px; color: var(--color-text-secondary);
+  }
+  .icon-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;
+  }
+  .icon-card {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 12px;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+  }
+  .icon-preview {
+    width: 32px; height: 32px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px;
+    background: var(--color-background-secondary);
+    font-size: 16px; color: var(--color-text-primary);
+  }
+  .icon-info { min-width: 0; }
+  .icon-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; word-break: break-all; font-family: var(--font-mono); }
+  .icon-desc { font-size: 11px; color: var(--color-text-secondary); margin: 0; line-height: 1.4; }
+  .icon-tag {
+    display: inline-block; font-size: 10px; padding: 1px 6px;
+    border-radius: 99px; margin-top: 3px;
+  }
+  .tag-nav   { background: #E6F1FB; color: #0C447C; }
+  .tag-action{ background: #EAF3DE; color: #27500A; }
+  .tag-status{ background: #FAEEDA; color: #633806; }
+  .tag-form  { background: #EEEDFE; color: #3C3489; }
+  .tag-report{ background: #FAECE7; color: #712B13; }
+  .tag-table { background: #E1F5EE; color: #085041; }
+  .tag-sys   { background: #FCEBEB; color: #791F1F; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 10px 14px; margin-bottom: 1.5rem;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+  }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 99px; }
+</style>
+
+<div class="legend">
+  <span style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin-right:4px;">Kategori:</span>
+  <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div>Navigasi</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#639922"></div>Aksi / Tombol</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#BA7517"></div>Status</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7F77DD"></div>Form / Input</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#D85A30"></div>Laporan</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Tabel / Data</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#E24B4A"></div>Sistem</div>
+</div>
+
+<!-- SIDEBAR NAVIGATION -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-layout-sidebar" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Sidebar Navigasi</span>
+    <span class="section-badge">7 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-layout-dashboard" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-layout-dashboard</p>
+        <p class="icon-desc">Tombol menu Dashboard di sidebar</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-users" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-users</p>
+        <p class="icon-desc">Tombol menu Data Warga</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-adjustments-horizontal</p>
+        <p class="icon-desc">Tombol menu Kriteria SAW</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-clipboard-list" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-clipboard-list</p>
+        <p class="icon-desc">Tombol menu Input Penilaian</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-chart-bar</p>
+        <p class="icon-desc">Tombol menu Hasil Keputusan SAW</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-printer" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-printer</p>
+        <p class="icon-desc">Tombol menu Laporan / Cetak</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-logout" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-logout</p>
+        <p class="icon-desc">Tombol Logout di bagian bawah sidebar</p>
+        <span class="icon-tag tag-nav">Navigasi</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-layout-dashboard" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Dashboard — Kartu Statistik</span>
+    <span class="section-badge">4 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-users" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-users</p>
+        <p class="icon-desc">Kartu "Total Warga Terdaftar"</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-adjustments-horizontal</p>
+        <p class="icon-desc">Kartu "Kriteria Aktif"</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle-check</p>
+        <p class="icon-desc">Kartu "Sudah Dinilai (Periode Ini)"</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-clock-pause" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-clock-pause</p>
+        <p class="icon-desc">Kartu "Belum Dinilai"</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA WARGA -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-users" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Data Warga</span>
+    <span class="section-badge">7 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-plus</p>
+        <p class="icon-desc">Tombol "Tambah Warga Manual"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-edit" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-edit</p>
+        <p class="icon-desc">Tombol "Edit" data warga</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-trash" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-trash</p>
+        <p class="icon-desc">Tombol "Hapus" data warga</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-search" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-search</p>
+        <p class="icon-desc">Tombol/ikon pencarian NIK / nama</p>
+        <span class="icon-tag tag-form">Form</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-file-import" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-file-import</p>
+        <p class="icon-desc">Tombol "Import dari Excel"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-file-export" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-file-export</p>
+        <p class="icon-desc">Tombol "Export ke Excel"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-user-plus" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-user-plus</p>
+        <p class="icon-desc">Header dialog form "Tambah Warga"</p>
+        <span class="icon-tag tag-form">Form</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KRITERIA SAW -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-adjustments-horizontal" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Kriteria SAW</span>
+    <span class="section-badge">5 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-plus" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-plus</p>
+        <p class="icon-desc">Tombol "Tambah Kriteria"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-edit" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-edit</p>
+        <p class="icon-desc">Tombol "Edit" kriteria</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-trash" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-trash</p>
+        <p class="icon-desc">Tombol "Hapus" kriteria</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-toggle-right" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-toggle-right</p>
+        <p class="icon-desc">Tombol "Aktifkan / Nonaktifkan" kriteria</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-alert-triangle" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-alert-triangle</p>
+        <p class="icon-desc">Label peringatan total bobot ≠ 100%</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INPUT PENILAIAN -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-clipboard-list" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Input Penilaian</span>
+    <span class="section-badge">5 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-calendar-plus" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-calendar-plus</p>
+        <p class="icon-desc">Tombol "+ Periode Baru"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-device-floppy" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-device-floppy</p>
+        <p class="icon-desc">Tombol "Simpan Penilaian"</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-trash" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-trash</p>
+        <p class="icon-desc">Tombol "Hapus Penilaian" warga</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle-check</p>
+        <p class="icon-desc">Status "✅ Sudah Dinilai" di kolom tabel</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle</p>
+        <p class="icon-desc">Status "⬜ Belum Dinilai" di kolom tabel</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HASIL KEPUTUSAN SAW -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-chart-bar" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Hasil Keputusan SAW</span>
+    <span class="section-badge">6 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-player-play" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-player-play</p>
+        <p class="icon-desc">Tombol "▶ Hitung SAW" — CTA utama</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-list-details" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-list-details</p>
+        <p class="icon-desc">Tombol "Lihat Detail" breakdown warga</p>
+        <span class="icon-tag tag-action">Aksi</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-printer" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-printer</p>
+        <p class="icon-desc">Tombol "Cetak Laporan Rekomendasi"</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle-check</p>
+        <p class="icon-desc">Kolom "✅ Layak" di tabel hasil</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle-x" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle-x</p>
+        <p class="icon-desc">Kolom "❌ Tidak Layak" di tabel hasil</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-alert-circle" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-alert-circle</p>
+        <p class="icon-desc">Label validasi bobot/data belum lengkap</p>
+        <span class="icon-tag tag-status">Status</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HALAMAN LAPORAN -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-printer" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Laporan (Pusat Laporan)</span>
+    <span class="section-badge">5 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-file-text</p>
+        <p class="icon-desc">Kartu "Buku Induk Data Warga" &amp; "Daftar Kriteria"</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-table" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-table</p>
+        <p class="icon-desc">Kartu "Matriks Penilaian Mentah"</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-award" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-award</p>
+        <p class="icon-desc">Kartu "Laporan Rekomendasi Penerima Bansos"</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-printer" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-printer</p>
+        <p class="icon-desc">Tombol "Cetak" di setiap kartu laporan</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-download" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-download</p>
+        <p class="icon-desc">Tombol "Export PDF" di JasperViewer</p>
+        <span class="icon-tag tag-report">Laporan</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN & AUTH -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-lock" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Halaman Login</span>
+    <span class="section-badge">3 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-lock" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-lock</p>
+        <p class="icon-desc">Label / dekorasi field "Password"</p>
+        <span class="icon-tag tag-form">Form</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-eye" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-eye</p>
+        <p class="icon-desc">Tombol toggle "Tampilkan Password"</p>
+        <span class="icon-tag tag-form">Form</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-eye-off" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-eye-off</p>
+        <p class="icon-desc">State tersembunyi toggle password</p>
+        <span class="icon-tag tag-form">Form</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SISTEM / DIALOG -->
+<div class="section">
+  <div class="section-header">
+    <i class="ti ti-settings" style="font-size:18px;color:var(--color-text-secondary)" aria-hidden="true"></i>
+    <span class="section-title">Dialog &amp; Sistem (Umum)</span>
+    <span class="section-badge">8 icon</span>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-check" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-check</p>
+        <p class="icon-desc">Konfirmasi sukses pada JOptionPane</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-x" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-x</p>
+        <p class="icon-desc">Tutup dialog, batal aksi</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-info-circle" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-info-circle</p>
+        <p class="icon-desc">Dialog informasi / pesan netral</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-alert-triangle" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-alert-triangle</p>
+        <p class="icon-desc">Dialog peringatan / konfirmasi hapus</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-circle-x" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-circle-x</p>
+        <p class="icon-desc">Dialog error / gagal validasi</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-refresh</p>
+        <p class="icon-desc">Tombol refresh data tabel</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-loader" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-loader</p>
+        <p class="icon-desc">Indikator loading saat proses SAW / import</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+    <div class="icon-card">
+      <div class="icon-preview"><i class="ti ti-app-window" aria-hidden="true"></i></div>
+      <div class="icon-info">
+        <p class="icon-name">ti-app-window</p>
+        <p class="icon-desc">Ikon aplikasi / title bar (app icon)</p>
+        <span class="icon-tag tag-sys">Sistem</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 18px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+  <div style="font-size:13px;color:var(--color-text-secondary);">Total icon unik:</div>
+  <div style="font-size:22px;font-weight:500;color:var(--color-text-primary);">50</div>
+  <div style="font-size:13px;color:var(--color-text-secondary);">Sebagian besar dipakai ulang di beberapa tempat (misal ti-trash, ti-edit, ti-circle-check).</div>
+  <div style="font-size:13px;color:var(--color-text-secondary);">Library yang direkomendasikan: <span style="font-family:var(--font-mono);font-size:12px;background:var(--color-background-primary);padding:2px 6px;border-radius:4px;border:0.5px solid var(--color-border-tertiary)">FlatLaf Extras + SVG icon set</span> atau embed Tabler Icons TTF ke dalam project.</div>
+</div>

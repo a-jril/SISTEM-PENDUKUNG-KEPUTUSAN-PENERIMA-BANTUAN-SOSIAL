@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+    "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+        http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="laporan_kriteria" pageWidth="595" pageHeight="842" orientation="Portrait"
+    columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20"
+    uuid="b2c3d4e5-f6a7-8901-bcde-f12345678901">
+
+    <parameter name="TANGGAL_CETAK" class="java.lang.String"/>
+    <parameter name="NAMA_DESA" class="java.lang.String"/>
+    <parameter name="TOTAL_BOBOT" class="java.lang.String"/>
+
+    <field name="kode" class="java.lang.String"/>
+    <field name="nama" class="java.lang.String"/>
+    <field name="atribut" class="java.lang.String"/>
+    <field name="bobot" class="java.lang.Double"/>
+    <field name="keterangan" class="java.lang.String"/>
+    <field name="statusAktif" class="java.lang.String"/>
+
+    <variable name="ROW_NUMBER" class="java.lang.Integer" calculation="Count" resetType="Report">
+        <variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+    </variable>
+
+    <title>
+        <band height="90">
+            <rectangle>
+                <reportElement x="0" y="0" width="535" height="90" backcolor="#1E3A5F" mode="Opaque"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="8" width="535" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="16" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[DAFTAR KRITERIA PENILAIAN SAW]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="38" width="535" height="18" forecolor="#B0C4DE"/>
+                <textElement textAlignment="Center">
+                    <font size="11" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{NAMA_DESA}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="58" width="535" height="14" forecolor="#90A8C0"/>
+                <textElement textAlignment="Center">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Metode: Simple Additive Weighting (SAW) | Total Bobot Aktif: " + $P{TOTAL_BOBOT} + "%"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="72" width="535" height="14" forecolor="#90A8C0"/>
+                <textElement textAlignment="Center">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Tanggal Cetak: " + $P{TANGGAL_CETAK}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="28">
+            <rectangle>
+                <reportElement x="0" y="0" width="535" height="28" backcolor="#2E5F8E" mode="Opaque"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="0" width="25" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[No]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="25" y="0" width="40" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Kode]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="65" y="0" width="140" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Nama Kriteria]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="205" y="0" width="60" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Atribut]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="265" y="0" width="55" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Bobot (%)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="320" y="0" width="160" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Keterangan]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="480" y="0" width="55" height="28" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Status]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="28">
+            <rectangle>
+                <reportElement x="0" y="0" width="535" height="28" backcolor="#F5F8FC" mode="Opaque">
+                    <printWhenExpression><![CDATA[$V{ROW_NUMBER} % 2 == 0]]></printWhenExpression>
+                </reportElement>
+            </rectangle>
+            <line>
+                <reportElement x="0" y="27" width="535" height="1" forecolor="#D0DDE8"/>
+            </line>
+            <textField>
+                <reportElement x="0" y="4" width="25" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{ROW_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="25" y="4" width="40" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kode}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="65" y="4" width="140" height="20"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="205" y="4" width="60" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{atribut}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="265" y="4" width="55" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bobot} + "%"]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="320" y="4" width="160" height="20"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="480" y="4" width="55" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{statusAktif}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <pageFooter>
+        <band height="30">
+            <line>
+                <reportElement x="0" y="0" width="535" height="1" forecolor="#2E5F8E"/>
+            </line>
+            <staticText>
+                <reportElement x="0" y="5" width="200" height="20" forecolor="#555555"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Sistem Pendukung Keputusan Bansos - SAW]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="400" y="5" width="135" height="20" forecolor="#555555"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Hal. " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+    <summary>
+        <band height="50">
+            <rectangle>
+                <reportElement x="0" y="10" width="535" height="35" backcolor="#EEF4FA" mode="Opaque"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="10" y="10" width="200" height="35" forecolor="#1E3A5F"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="10" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <text><![CDATA[Catatan: Perhitungan SAW hanya menggunakan kriteria yang berstatus Aktif]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="300" y="10" width="235" height="35" forecolor="#1E3A5F"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="10" isBold="true" fontName="SansSerif"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Total Bobot Aktif: " + $P{TOTAL_BOBOT} + "%"]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+
+    
+</jasperReport>
